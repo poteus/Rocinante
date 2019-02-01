@@ -9,11 +9,19 @@ public class RobotMap {
 
 	public static final int DRIVER_USB_PORT = 0;
 	
+/**********************************************************/
+/*                       Drive Train                      */
+
 	public static int DRIVETRAIN_TALON_LEFT_FRONT = 10;
 	public static int DRIVETRAIN_TALON_LEFT_BACK = 11;
 	public static int DRIVETRAIN_TALON_RIGHT_FRONT = 12;
 	public static int DRIVETRAIN_TALON_RIGHT_BACK = 13;
 
 	public static double MAX_SPEED = 1;
+
+/**********************************************************/
+/*                       Drive Train                      */	
+
+	public static double MAX_SPEED_ELEVATOR = 1;
 }	
 	
