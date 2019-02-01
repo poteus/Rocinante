@@ -9,38 +9,42 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 
-public class ElevatorUP extends Command {
-	// Encoders for elevator
+public class ElevatorDOWN extends Command {
+  
 	Encoder ElevatorEncoder;
-	double countElevator, Top=2000; /* Top is the value to get ot the top */
-		
-	public ElevatorUP() {
+	double countElevator, Bottom=0;
+	
+	public ElevatorDOWN() {
     		requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		ElevatorEncoder.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    			countElevator = ElevatorEncoder.get();
-    			if(countElevator<(Top*0.9))
-    				Robot.elevator.elevator_up(RobotMap.MAX_SPEED_ELEVATOR_UP);
-    			else if(countElevator<Top)
-					Robot.elevator.elevator_up(RobotMap.MAX_SPEED_ELEVATOR_UP/2);
-				if(countElevator>Top)
-					Robot.elevator.hold_position();
-    }
+    	countElevator = ElevatorEncoder.get();
+		if(countElevator<(Bottom*0.9))
+			Robot.elevator.elevator_down(RobotMap.MAX_SPEED_ELEVATOR_DOWN);
+		else if(countElevator<Bottom)
+			Robot.elevator.elevator_down(RobotMap.MAX_SPEED_ELEVATOR_DOWN/2);
+		if(countElevator>Top) Robot.elevator.hold_position();
+		}
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-			countElevator = ElevatorEncoder.get();
-    		if (countElevator>Top)
+    		/*if (direction == 1){
+    			return Robot.elevator.isUp();
+    		} 
+    		else if (direction == -1){
+    			return elevator.isDown();
+    		} 
+    		else 
+    		{
     			return true;
-    		else
-    			return false;
+    		}*/
+    		return false;
     }
 
     // Called once after isFinished returns true
@@ -52,5 +56,4 @@ public class ElevatorUP extends Command {
     protected void interrupted() {
     		Robot.elevator.stop();
     }
-    
 }
