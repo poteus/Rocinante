@@ -25,5 +25,7 @@ public class RobotMap {
 	public static double MAX_SPEED_ELEVATOR_UP = 1;
 	public static double MAX_SPEED_ELEVATOR_DOWN = 1;
 	public static double ELEVATOR_CAN_ID = 21;
+	public static double BUTTON_UP = 1;
+	public static double BUTTON_DOWN = 2;
 }	
 	

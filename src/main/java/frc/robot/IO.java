@@ -15,10 +15,13 @@ public class OI
 {
 
 	public Joystick DriverController = new Joystick(RobotMap.DRIVER_USB_PORT);
-		
+	
+	public Button ButtonUP = new JoystickButton(DriverController, RobotMap.BUTTON_UP);
+	public Button ButtonDOWN = new JoystickButton(DriverController, RobotMap.BUTTON_DOWN);
 
 	public OI()
 	{
-		
+		ButtonUP.whileHeld(new ElevatorUP());
+		ButtonDOWN.whileHeld(new ElevatorDOWN());
 	}
 }
